@@ -280,9 +280,6 @@ h1, h1, h3, h4, h5, h6 {
   line-height: 19px;
   color: rgba(0, 0, 0, 0.65);
 }
-.memory__offering--hiden {
-  display: none;
-}
 .memory__records {
   height: 309px;
   margin: 0 0 24px 0;
@@ -331,14 +328,8 @@ h1, h1, h3, h4, h5, h6 {
   cursor: pointer;
   border: 1px solid rgba(219, 27, 27, 0.9);
 }
-.memory__clear-btn--hiden {
-  display: none;
-}
 .memory__warning {
   font-size: 14px;
   line-height: 17px;
   color: rgba(0, 0, 0, 0.7);
-}
-.memory__warning--hiden {
-  display: none;
 }/*# sourceMappingURL=all.css.map */
