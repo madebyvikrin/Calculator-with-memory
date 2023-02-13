@@ -258,12 +258,8 @@
         background: #ffffff;
         transition: all 0.2s ease;
 
-        &:hover {
-            cursor: pointer;
-            
-        }
-
         & img:hover {
+            cursor: pointer;
             content: url('/Calculator-with-memory/src/img/icons/delete_red.svg');
         }
     }

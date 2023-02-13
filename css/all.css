@@ -295,10 +295,8 @@ h1, h1, h3, h4, h5, h6 {
   background: #ffffff;
   transition: all 0.2s ease;
 }
-.memory__delete-btn:hover {
-  cursor: pointer;
-}
 .memory__delete-btn img:hover {
+  cursor: pointer;
   content: url("/Calculator-with-memory/src/img/icons/delete_red.svg");
 }
 .memory__clear-btn {
