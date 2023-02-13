@@ -58,7 +58,21 @@ const getExpression = () => {
 	const getValues = () => {
 		let firstNumberStr = inputs[0].value;
 		let secondNumberStr = inputs[1].value;
-		return [firstNumberStr, secondNumberStr];
+
+		if (firstNumberStr === '' && secondNumberStr === '') {
+			inputs[0].style.border = '1px solid #FF0000';
+			inputs[1].style.border = '1px solid #FF0000';
+		} else if (firstNumberStr === '') {
+			inputs[0].style.border = '1px solid #FF0000';
+			inputs[1].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+		} else if (secondNumberStr === '') {
+			inputs[0].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+			inputs[1].style.border = '1px solid #FF0000';
+		} else {
+			inputs[0].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+			inputs[1].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+			return [firstNumberStr, secondNumberStr];
+		}
 	};
 
 	let numbers = getValues();
@@ -81,15 +95,19 @@ const showResultInOutput = () => {
 
 		switch (operator) {
 			case "+":
+				output.style.border = '1px solid rgba(0, 0, 0, 0.35)';
 				return `${+firstNumber + +secondNumber}`;
 
 			case "-":
+				output.style.border = '1px solid rgba(0, 0, 0, 0.35)';
 				return `${+firstNumber - +secondNumber}`;
 
 			case "*":
+				output.style.border = '1px solid rgba(0, 0, 0, 0.35)';
 				return `${+firstNumber * +secondNumber}`;
 
 			case "/":
+				output.style.border = '1px solid rgba(0, 0, 0, 0.35)';
 				return `${+firstNumber / +secondNumber}`;
 
 			default:
@@ -109,7 +127,11 @@ const clearAll = () => {
 };
 
 const moveRelultToFirstValue = () => {
-	inputs[0].value = `${output.innerHTML}`;
+	if (output.innerHTML === '') {
+		output.style.border = '1px solid #FF0000';
+	} else {
+		inputs[0].value = `${output.innerHTML}`;
+	}
 };
 
 toCountBtn.addEventListener("click", showResultInOutput);
