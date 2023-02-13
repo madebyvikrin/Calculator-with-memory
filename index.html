@@ -1,121 +1,86 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Калькулятор с памятью</title>
-		<link rel="stylesheet" href="css/all.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<div class="page-wrapper">
-			<header class="header">
-				<h1 class="offering">Калькулятор с памятью</h1>
-			</header>
-			<div class="container">
-				<section class="calculator">
-					<div class="calculator__wrapper">
-						<div class="inputs-block">
-							<div class="inputs-block__left">
-								<div class="inputs-block__input-block--first">
-									<p class="inputs-block__offering">Первое число:</p>
-									<input
-										type="number"
-										name="input"
-										id="input1"
-										class="inputs-block__input"
-										placeholder="Введите число"
-									/>
-								</div>
-								<div class="inputs-block__input-block">
-									<p class="inputs-block__offering">Второе число:</p>
-									<input
-										type="number"
-										name="input"
-										id="input2"
-										class="inputs-block__input"
-										placeholder="Введите второе число"
-									/>
-								</div>
-								<div class="inputs-block__buttons">
-									<input
-										type="button"
-										value="Посчитать"
-										class="inputs-block__submit-btn"
-									/>
-									<div class="inputs-block__random-wrapper">
-										<input
-											type="button"
-											value="Случайное 2-е"
-											class="inputs-block__random-2nd"
-										/>
-										<!-- <input type="number" id="random1" placeholder="От:" class="inputs-block__random-input">
-										<input type="number" id="random2" placeholder="До:" class="inputs-block__random-input">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Калькулятор с памятью</title>
+	<link rel="stylesheet" href="css/all.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="page-wrapper">
+		<header class="header">
+			<h1 class="offering">Калькулятор с памятью</h1>
+		</header>
+		<div class="container">
+			<section class="calculator">
+				<div class="calculator__wrapper">
+					<div class="inputs-block">
+						<div class="inputs-block__left">
+							<div class="inputs-block__input-block--first">
+								<p class="inputs-block__offering">Первое число:</p>
+								<input type="number" name="input" id="input1" class="inputs-block__input"
+									placeholder="Введите число" />
+							</div>
+							<div class="inputs-block__input-block">
+								<p class="inputs-block__offering">Второе число:</p>
+								<input type="number" name="input" id="input2" class="inputs-block__input"
+									placeholder="Введите второе число" />
+							</div>
+							<div class="inputs-block__buttons">
+								<input type="button" value="Посчитать" class="inputs-block__submit-btn" />
+								<div class="inputs-block__random-wrapper">
+									<input type="button" value="Случайное 2-е" class="inputs-block__random-2nd" />
+									<div class="inputs-block__random-active inputs-block__random-active--hiden">
+										<input type="number" id="random1" placeholder="От:"
+											class="inputs-block__random-input" />
+										<input type="number" id="random2" placeholder="До:"
+											class="inputs-block__random-input" />
 										<button class="inputs-block__random-confirm" id="random-confirm-btn">
-											<img src="/Calculator-with-memory/src/img/icons/random_confirm.svg" alt="OK">
-										</button> -->
+											<img src="/Calculator-with-memory/src/img/icons/random_confirm.svg"
+												alt="OK" />
+										</button>
 									</div>
 								</div>
 							</div>
-							<div class="inputs-block__right">
-								<div class="inputs-block__operators">
-									<button class="inputs-block__operator" id="operatorPlus">
-										<img
-											src="/Calculator-with-memory/src/img/icons/plus.svg"
-											alt="+"
-										/>
-									</button>
-									<button class="inputs-block__operator" id="operatorMinus">
-										<img
-											src="/Calculator-with-memory/src/img/icons/minus.svg"
-											alt="-"
-										/>
-									</button>
-									<button class="inputs-block__operator" id="operatorMultiply">
-										<img
-											src="/Calculator-with-memory/src/img/icons/multiply.svg"
-											alt="х"
-										/>
-									</button>
-									<button class="inputs-block__operator" id="operatorDivide">
-										<img
-											src="/Calculator-with-memory/src/img/icons/division.svg"
-											alt="/"
-										/>
-									</button>
-								</div>
-							</div>
 						</div>
-						<div class="output-block">
-							<p class="output-block__offering">Результат:</p>
-							<div class="output-block__output" id="output"></div>
-							<div class="output-block__buttons">
-								<input
-									type="button"
-									value="Очистить"
-									id="clearButton"
-									class="output-block__clear-btn"
-								/>
-								<input
-									type="button"
-									value="В первое число"
-									id="moveValueButton"
-									class="output-block__move-value-btn"
-								/>
+						<div class="inputs-block__right">
+							<div class="inputs-block__operators">
+								<button class="inputs-block__operator" id="operatorPlus">
+									<img src="/Calculator-with-memory/src/img/icons/plus.svg" alt="+" />
+								</button>
+								<button class="inputs-block__operator" id="operatorMinus">
+									<img src="/Calculator-with-memory/src/img/icons/minus.svg" alt="-" />
+								</button>
+								<button class="inputs-block__operator" id="operatorMultiply">
+									<img src="/Calculator-with-memory/src/img/icons/multiply.svg" alt="х" />
+								</button>
+								<button class="inputs-block__operator" id="operatorDivide">
+									<img src="/Calculator-with-memory/src/img/icons/division.svg" alt="/" />
+								</button>
 							</div>
 						</div>
 					</div>
-				</section>
-				<section class="memory">
-					<p class="memory__offering memory__offering--hiden">Память:</p>
-					<div class="memory__records">
-						<!-- <div class="memory__record">
+					<div class="output-block">
+						<p class="output-block__offering">Результат:</p>
+						<div class="output-block__output" id="output"></div>
+						<div class="output-block__buttons">
+							<input type="button" value="Очистить" id="clearButton" class="output-block__clear-btn" />
+							<input type="button" value="В первое число" id="moveValueButton"
+								class="output-block__move-value-btn" />
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="memory">
+				<p class="memory__offering memory__offering--hiden">Память:</p>
+				<div class="memory__records">
+					<!-- <div class="memory__record">
 							<div class="memory__data">
 								<p class="memory__index">1.</p>
 								<p class="memory__value">84</p>
@@ -127,18 +92,15 @@
 								/>
 							</button>
 						</div> -->
-					</div>
-					<input
-						type="button"
-						value="Очистить память"
-						class="memory__clear-btn memory__clear-btn--hiden"
-					/>
-					<p class="memory__warning memory__warning--hiden">
-						Достигнут лимит памяти, следующая запись полностью очистит память.
-					</p>
-				</section>
-			</div>
+				</div>
+				<input type="button" value="Очистить память" class="memory__clear-btn memory__clear-btn--hiden" />
+				<p class="memory__warning memory__warning--hiden">
+					Достигнут лимит памяти, следующая запись полностью очистит память.
+				</p>
+			</section>
 		</div>
-		<script src="js/script.js"></script>
-	</body>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+
 </html>

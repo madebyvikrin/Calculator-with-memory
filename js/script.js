@@ -5,8 +5,7 @@ const output = document.querySelector("#output");
 const operatorsBtns = document.querySelectorAll('[id*="operator"]');
 const toCountBtn = document.querySelector(".inputs-block__submit-btn");
 const random2ndNumberBtn = document.querySelector(".inputs-block__random-2nd");
-const randomDiv = document.querySelector(".inputs-block__random-wrapper");
-
+const randomDiv = document.querySelector(".inputs-block__random-active");
 const clearOutputBtn = document.querySelector("#clearButton");
 const outputToInput1 = document.querySelector("#moveValueButton");
 
@@ -131,13 +130,8 @@ const moveRelultToFirstValue = () => {
 };
 
 const transformRandomBtn = () => {
-	randomDiv.innerHTML = `
-	<input type="number" id="random1" placeholder="От:" class="inputs-block__random-input">
-	<input type="number" id="random2" placeholder="До:" class="inputs-block__random-input">
-	<button class="inputs-block__random-confirm" id="random-confirm-btn">
-			<img src="/Calculator-with-memory/src/img/icons/random_confirm.svg" alt="OK">
-	</button>
-	`;
+	randomDiv.classList.remove('inputs-block__random-active--hiden');
+	random2ndNumberBtn.classList.add('inputs-block__random-2nd--hiden');
 };
 
 const showRandomNumber = () => {
@@ -168,6 +162,8 @@ const clearAll = () => {
 	inputs[1].value = "";
 	inputs[0].style.border = "1px solid rgba(0, 0, 0, 0.35)";
 	inputs[1].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+	randomDiv.classList.add('inputs-block__random-active--hiden');
+	random2ndNumberBtn.classList.remove('inputs-block__random-2nd--hiden');
 };
 
 toCountBtn.addEventListener("click", showResultInOutput);

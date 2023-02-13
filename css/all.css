@@ -190,12 +190,15 @@ input[type=number]:focus {
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.9);
 }
-.inputs-block__random-wrapper {
+.inputs-block__random-active {
   display: flex;
   justify-content: space-between;
   width: 175px;
   height: 35px;
   transition: all 0.2s ease;
+}
+.inputs-block__random-active--hiden {
+  display: none;
 }
 .inputs-block__random-input {
   padding: 0 0 0 10px;
@@ -234,6 +237,9 @@ input[type=number]:focus {
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.9);
+}
+.inputs-block__random-2nd--hiden {
+  display: none;
 }
 .inputs-block__operators {
   margin: 21px 0 0 0;

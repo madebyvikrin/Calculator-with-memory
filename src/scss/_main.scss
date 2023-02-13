@@ -100,12 +100,16 @@
         }
     }
 
-    &__random-wrapper {
+    &__random-active {
         display: flex;
         justify-content: space-between;
         width: 175px;
         height: 35px;
         transition: all 0.2s ease;
+
+        &--hiden {
+            display: none;
+        }
     }
 
     &__random-input {
@@ -149,6 +153,10 @@
             color: rgba(0, 0, 0, 0.85);
             cursor: pointer;
             border: 1px solid rgba(0, 0, 0, 0.9);
+        }
+
+        &--hiden {
+            display: none;
         }
     }
 
