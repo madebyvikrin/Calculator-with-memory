@@ -189,23 +189,10 @@ h1, h1, h3, h4, h5, h6 {
   width: 35px;
   height: 35px;
   transition: border 0.2s ease;
+  background: #ffffff;
 }
-.inputs-block__operator:nth-child(1) {
-  background: url("/src/img/icons/plus.svg") center center no-repeat;
-  background-size: 20px 20px;
-}
-.inputs-block__operator:nth-child(2) {
-  background: url("/src/img/icons/minus.svg") center center no-repeat;
-  background-size: 20px 20px;
-}
-.inputs-block__operator:nth-child(3) {
-  background: url("/src/img/icons/multiply.svg") center center no-repeat;
-  background-size: 20px 20px;
-}
-.inputs-block__operator:nth-child(4) {
-  margin: 0;
-  background: url("/src/img/icons/division.svg") center center no-repeat;
-  background-size: 20px 20px;
+.inputs-block__operator:nth-child(2) img {
+  padding: 6px 0 0 0;
 }
 .inputs-block__operator:hover {
   cursor: pointer;
