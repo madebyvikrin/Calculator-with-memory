@@ -255,13 +255,16 @@
     &__delete-btn {
         width: 24px;
         height: 19px;
-        background: url("/src/img/icons/delete.svg") center center no-repeat;
-        background-size: 23.75px 19px;
+        background: #ffffff;
         transition: all 0.2s ease;
 
         &:hover {
             cursor: pointer;
-            background: url("/src/img/icons/delete_red.svg") center center no-repeat;
+            
+        }
+
+        & img:hover {
+            content: url('/Calculator-with-memory/src/img/icons/delete_red.svg');
         }
     }
 

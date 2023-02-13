@@ -16,7 +16,7 @@ const setOperatorsBtns = () => {
 			btn.style.border = "1px solid rgba(0, 0, 0, 0.5)";
 		}
 
-		operatorsBtns[0].style.border = "2px solid #00FF19";
+		operatorsBtns[0].style.border = "1px solid #00FF19";
 
 		operator = " + ";
 	});
@@ -26,7 +26,7 @@ const setOperatorsBtns = () => {
 			btn.style.border = "1px solid rgba(0, 0, 0, 0.5)";
 		}
 
-		operatorsBtns[1].style.border = "2px solid #00FF19";
+		operatorsBtns[1].style.border = "1px solid #00FF19";
 
 		operator = " - ";
 	});
@@ -36,7 +36,7 @@ const setOperatorsBtns = () => {
 			btn.style.border = "1px solid rgba(0, 0, 0, 0.5)";
 		}
 
-		operatorsBtns[2].style.border = "2px solid #00FF19";
+		operatorsBtns[2].style.border = "1px solid #00FF19";
 
 		operator = " * ";
 	});
@@ -46,7 +46,7 @@ const setOperatorsBtns = () => {
 			btn.style.border = "1px solid rgba(0, 0, 0, 0.5)";
 		}
 
-		operatorsBtns[3].style.border = "2px solid #00FF19";
+		operatorsBtns[3].style.border = "1px solid #00FF19";
 
 		operator = " / ";
 	});
@@ -59,18 +59,18 @@ const getExpression = () => {
 		let firstNumberStr = inputs[0].value;
 		let secondNumberStr = inputs[1].value;
 
-		if (firstNumberStr === '' && secondNumberStr === '') {
-			inputs[0].style.border = '1px solid #FF0000';
-			inputs[1].style.border = '1px solid #FF0000';
-		} else if (firstNumberStr === '') {
-			inputs[0].style.border = '1px solid #FF0000';
-			inputs[1].style.border = '1px solid rgba(0, 0, 0, 0.35)';
-		} else if (secondNumberStr === '') {
-			inputs[0].style.border = '1px solid rgba(0, 0, 0, 0.35)';
-			inputs[1].style.border = '1px solid #FF0000';
+		if (firstNumberStr === "" && secondNumberStr === "") {
+			inputs[0].style.border = "1px solid #FF0000";
+			inputs[1].style.border = "1px solid #FF0000";
+		} else if (firstNumberStr === "") {
+			inputs[0].style.border = "1px solid #FF0000";
+			inputs[1].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+		} else if (secondNumberStr === "") {
+			inputs[0].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+			inputs[1].style.border = "1px solid #FF0000";
 		} else {
-			inputs[0].style.border = '1px solid rgba(0, 0, 0, 0.35)';
-			inputs[1].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+			inputs[0].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+			inputs[1].style.border = "1px solid rgba(0, 0, 0, 0.35)";
 			return [firstNumberStr, secondNumberStr];
 		}
 	};
@@ -95,24 +95,24 @@ const showResultInOutput = () => {
 
 		switch (operator) {
 			case "+":
-				output.style.border = '1px solid rgba(0, 0, 0, 0.35)';
+				output.style.border = "1px solid rgba(0, 0, 0, 0.35)";
 				return `${+firstNumber + +secondNumber}`;
 
 			case "-":
-				output.style.border = '1px solid rgba(0, 0, 0, 0.35)';
+				output.style.border = "1px solid rgba(0, 0, 0, 0.35)";
 				return `${+firstNumber - +secondNumber}`;
 
 			case "*":
-				output.style.border = '1px solid rgba(0, 0, 0, 0.35)';
+				output.style.border = "1px solid rgba(0, 0, 0, 0.35)";
 				return `${+firstNumber * +secondNumber}`;
 
 			case "/":
-				output.style.border = '1px solid rgba(0, 0, 0, 0.35)';
+				output.style.border = "1px solid rgba(0, 0, 0, 0.35)";
 				return `${+firstNumber / +secondNumber}`;
 
 			default:
 				for (let btn of operatorsBtns) {
-					btn.style.border = "2px solid #FF0000";
+					btn.style.border = "1px solid #FF0000";
 				}
 
 				return "";
@@ -127,8 +127,8 @@ const clearAll = () => {
 };
 
 const moveRelultToFirstValue = () => {
-	if (output.innerHTML === '') {
-		output.style.border = '1px solid #FF0000';
+	if (output.innerHTML === "") {
+		output.style.border = "1px solid #FF0000";
 	} else {
 		inputs[0].value = `${output.innerHTML}`;
 	}

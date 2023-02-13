@@ -292,13 +292,14 @@ h1, h1, h3, h4, h5, h6 {
 .memory__delete-btn {
   width: 24px;
   height: 19px;
-  background: url("/src/img/icons/delete.svg") center center no-repeat;
-  background-size: 23.75px 19px;
+  background: #ffffff;
   transition: all 0.2s ease;
 }
 .memory__delete-btn:hover {
   cursor: pointer;
-  background: url("/src/img/icons/delete_red.svg") center center no-repeat;
+}
+.memory__delete-btn img:hover {
+  content: url("/Calculator-with-memory/src/img/icons/delete_red.svg");
 }
 .memory__clear-btn {
   margin: 0 0 9px 0;
