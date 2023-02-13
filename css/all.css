@@ -190,6 +190,34 @@ input[type=number]:focus {
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.9);
 }
+.inputs-block__random-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 175px;
+  height: 35px;
+  transition: all 0.2s ease;
+}
+.inputs-block__random-input {
+  padding: 0 0 0 10px;
+  width: 62px;
+  height: 35px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+.inputs-block__random-input:hover {
+  border: 1px solid rgba(0, 0, 0, 0.9);
+}
+.inputs-block__random-confirm {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  width: 35px;
+  height: 35px;
+  transition: all 0.2s ease;
+}
+.inputs-block__random-confirm:hover {
+  border: 1px solid rgba(0, 0, 0, 0.9);
+}
 .inputs-block__random-2nd {
   padding: 8px 29px;
   width: 175px;
@@ -296,6 +324,9 @@ input[type=number]:focus {
   line-height: 19px;
   color: rgba(0, 0, 0, 0.65);
 }
+.memory__offering--hiden {
+  display: none;
+}
 .memory__records {
   height: 309px;
   margin: 0 0 24px 0;
@@ -343,8 +374,14 @@ input[type=number]:focus {
   cursor: pointer;
   border: 1px solid rgba(219, 27, 27, 0.9);
 }
+.memory__clear-btn--hiden {
+  display: none;
+}
 .memory__warning {
   font-size: 14px;
   line-height: 17px;
   color: rgba(0, 0, 0, 0.7);
+}
+.memory__warning--hiden {
+  display: none;
 }/*# sourceMappingURL=all.css.map */

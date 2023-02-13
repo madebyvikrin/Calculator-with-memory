@@ -5,6 +5,8 @@ const output = document.querySelector("#output");
 const operatorsBtns = document.querySelectorAll('[id*="operator"]');
 const toCountBtn = document.querySelector(".inputs-block__submit-btn");
 const random2ndNumberBtn = document.querySelector(".inputs-block__random-2nd");
+const randomDiv = document.querySelector(".inputs-block__random-wrapper");
+
 const clearOutputBtn = document.querySelector("#clearButton");
 const outputToInput1 = document.querySelector("#moveValueButton");
 
@@ -120,12 +122,6 @@ const showResultInOutput = () => {
 	}
 };
 
-const clearAll = () => {
-	output.innerHTML = "";
-	inputs[0].value = "";
-	inputs[1].value = "";
-};
-
 const moveRelultToFirstValue = () => {
 	if (output.innerHTML === "") {
 		output.style.border = "1px solid #FF0000";
@@ -134,6 +130,47 @@ const moveRelultToFirstValue = () => {
 	}
 };
 
+const transformRandomBtn = () => {
+	randomDiv.innerHTML = `
+	<input type="number" id="random1" placeholder="От:" class="inputs-block__random-input">
+	<input type="number" id="random2" placeholder="До:" class="inputs-block__random-input">
+	<button class="inputs-block__random-confirm" id="random-confirm-btn">
+			<img src="/Calculator-with-memory/src/img/icons/random_confirm.svg" alt="OK">
+	</button>
+	`;
+};
+
+const showRandomNumber = () => {
+	const randomInputs = document.querySelectorAll('[id*="random"]');
+	const moveRandomToInput2Btn = document.querySelector("#random-confirm-btn");
+
+	const getRandomInteger = () => {
+		let min = parseInt(randomInputs[0].value);
+		let max = parseInt(randomInputs[1].value);
+		let rand = min + Math.random() * (max + 1 - min);
+		return Math.floor(rand);
+	};
+
+	moveRandomToInput2Btn.addEventListener("click", () => {
+		inputs[1].value = `${getRandomInteger()}`;
+	});
+};
+
+function initRandom() {
+	transformRandomBtn();
+	showRandomNumber();
+}
+
+const clearAll = () => {
+	output.innerHTML = "";
+	output.style.border  = "1px solid rgba(0, 0, 0, 0.35";
+	inputs[0].value = "";
+	inputs[1].value = "";
+	inputs[0].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+	inputs[1].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+};
+
 toCountBtn.addEventListener("click", showResultInOutput);
 clearOutputBtn.addEventListener("click", clearAll);
 outputToInput1.addEventListener("click", moveRelultToFirstValue);
+random2ndNumberBtn.addEventListener("click", initRandom);

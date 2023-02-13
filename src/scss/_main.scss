@@ -19,7 +19,6 @@
 }
 
 .calculator {
-
     &__wrapper {
         width: 394px;
         margin: 0 105px 0 0;
@@ -97,6 +96,39 @@
 
         &:hover {
             cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.9);
+        }
+    }
+
+    &__random-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 175px;
+        height: 35px;
+        transition: all 0.2s ease;
+    }
+
+    &__random-input {
+        padding: 0 0 0 10px;
+        width: 62px;
+        height: 35px;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        transition: all 0.2s ease;
+
+        &:hover {
+            border: 1px solid rgba(0, 0, 0, 0.9);
+        }
+    }
+
+    &__random-confirm {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        width: 35px;
+        height: 35px;
+        transition: all 0.2s ease;
+
+        &:hover {
             border: 1px solid rgba(0, 0, 0, 0.9);
         }
     }
@@ -221,7 +253,7 @@
         color: rgba(0, 0, 0, 0.65);
 
         &--hiden {
-            // display: none;
+            display: none;
         }
     }
 
@@ -260,7 +292,7 @@
 
         & img:hover {
             cursor: pointer;
-            content: url('/Calculator-with-memory/src/img/icons/delete_red.svg');
+            content: url("/Calculator-with-memory/src/img/icons/delete_red.svg");
         }
     }
 
@@ -281,7 +313,7 @@
         }
 
         &--hiden {
-            // display: none;
+            display: none;
         }
     }
 
@@ -290,7 +322,7 @@
         line-height: 17px;
         color: rgba(0, 0, 0, 0.7);
         &--hiden {
-            // display: none;
+            display: none;
         }
     }
 }
