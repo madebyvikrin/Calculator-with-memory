@@ -11,6 +11,12 @@ const outputToInput1 = document.querySelector("#moveValueButton");
 const randomInputs = document.querySelectorAll('[id*="random"]');
 
 let operator;
+let memory = [];
+
+const memoryHeader = document.querySelector(".memory__offering");
+const memoryDiv = document.querySelector(".memory__records");
+const memoryClearAllBtn = document.querySelector(".memory__clear-btn");
+const memoryWarning = document.querySelector(".memory__warning");
 
 const setOperatorsBtns = () => {
 	operatorsBtns[0].addEventListener("click", () => {
@@ -95,29 +101,47 @@ const showResultInOutput = () => {
 		let secondNumber = expression.slice(pos2);
 		let operator = expression.charAt(pos1 + 1);
 
+		let result = "";
+
 		switch (operator) {
 			case "+":
 				output.style.border = "1px solid rgba(0, 0, 0, 0.35)";
-				return `${+firstNumber + +secondNumber}`;
+				showMemory();
+				result = `${+firstNumber + +secondNumber}`;
+				addMemoryRecord(result);
+				renderMemory();
+				return result;
 
 			case "-":
 				output.style.border = "1px solid rgba(0, 0, 0, 0.35)";
-				return `${+firstNumber - +secondNumber}`;
+				showMemory();
+				result = `${+firstNumber - +secondNumber}`;
+				addMemoryRecord(result);
+				renderMemory();
+				return result;
 
 			case "*":
 				output.style.border = "1px solid rgba(0, 0, 0, 0.35)";
-				return `${+firstNumber * +secondNumber}`;
+				showMemory();
+				result = `${+firstNumber * +secondNumber}`;
+				addMemoryRecord(result);
+				renderMemory();
+				return result;
 
 			case "/":
 				output.style.border = "1px solid rgba(0, 0, 0, 0.35)";
-				return `${+firstNumber / +secondNumber}`;
+				showMemory();
+				result = `${+firstNumber / +secondNumber}`;
+				addMemoryRecord(result);
+				renderMemory();
+				return result;
 
 			default:
 				for (let btn of operatorsBtns) {
 					btn.style.border = "1px solid #FF0000";
 				}
 
-				return "";
+				return result;
 		}
 	}
 };
@@ -131,12 +155,11 @@ const moveRelultToFirstValue = () => {
 };
 
 const transformRandomBtn = () => {
-	randomDiv.classList.remove('inputs-block__random-active--hiden');
-	random2ndNumberBtn.classList.add('inputs-block__random-2nd--hiden');
+	randomDiv.classList.remove("inputs-block__random-active--hiden");
+	random2ndNumberBtn.classList.add("inputs-block__random-2nd--hiden");
 };
 
 const showRandomNumber = () => {
-	
 	const moveRandomToInput2Btn = document.querySelector("#random-confirm-btn");
 
 	const getRandomInteger = () => {
@@ -145,17 +168,18 @@ const showRandomNumber = () => {
 		let rand;
 
 		if (!min && !max) {
-			randomInputs[0].style.border = '1px solid #FF0000';
-			randomInputs[1].style.border = '1px solid #FF0000';
+			randomInputs[0].style.border = "1px solid #FF0000";
+			randomInputs[1].style.border = "1px solid #FF0000";
 		} else if (!min) {
-			randomInputs[0].style.border = '1px solid #FF0000';
-			randomInputs[1].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+			randomInputs[0].style.border = "1px solid #FF0000";
+			randomInputs[1].style.border = "1px solid rgba(0, 0, 0, 0.35)";
 		} else if (!max) {
-			randomInputs[0].style.border = '1px solid rgba(0, 0, 0, 0.35)';
-			randomInputs[1].style.border = '1px solid #FF0000';
+			randomInputs[0].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+			randomInputs[1].style.border = "1px solid #FF0000";
 		} else {
-			randomInputs[0].style.border = '1px solid rgba(0, 0, 0, 0.35)';
-			randomInputs[1].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+			randomInputs[0].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+			randomInputs[1].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+
 			rand = min + Math.random() * (max + 1 - min);
 		}
 
@@ -174,21 +198,71 @@ function initRandom() {
 
 const clearAll = () => {
 	output.innerHTML = "";
-	output.style.border  = "1px solid rgba(0, 0, 0, 0.35";
+	output.style.border = "1px solid rgba(0, 0, 0, 0.35";
 
 	for (let input of inputs) {
-		input.value = '';
+		input.value = "";
 		input.style.border = "1px solid rgba(0, 0, 0, 0.35)";
 	}
 
 	for (let randInput of randomInputs) {
-		randInput.value = '';
+		randInput.value = "";
 		randInput.style.border = "1px solid rgba(0, 0, 0, 0.35)";
 	}
 
-	randomDiv.classList.add('inputs-block__random-active--hiden');
-	random2ndNumberBtn.classList.remove('inputs-block__random-2nd--hiden');
+	randomDiv.classList.add("inputs-block__random-active--hiden");
+	random2ndNumberBtn.classList.remove("inputs-block__random-2nd--hiden");
 };
+
+function addMemoryRecord(result) {
+	const record = {
+		result,
+		deleted: false,
+		id: `${Math.random()}`,
+	};
+
+	memory.push(record);
+}
+
+function deleteMemoryRecord(id) {
+	memory.forEach((record) => {
+		if (id === record.id) {
+			record.deleted = true;
+		}
+	});
+}
+
+function renderMemory() {
+	let memoryHtml = "";
+
+	memory.forEach((record) => {
+		if (record.deleted) {
+			return;
+		} else {
+			memoryHtml += `
+			<div class="memory__record">
+				<div class="memory__data">
+					<p class="memory__index">err.</p>
+					<p class="memory__value">err</p>
+				</div>
+				<button class="memory__delete-btn" id="memoryDeleteBtn">
+					<img
+						src="/Calculator-with-memory/src/img/icons/delete.svg"
+						alt="x"
+					/>
+				</button>
+			</div>
+		`;
+		}
+	});
+
+	memoryDiv.innerHTML = memoryHtml;
+}
+
+function showMemory() {
+	memoryHeader.classList.remove("memory__offering--hiden");
+	memoryClearAllBtn.classList.remove("memory__clear-btn--hiden");
+}
 
 toCountBtn.addEventListener("click", showResultInOutput);
 clearOutputBtn.addEventListener("click", clearAll);

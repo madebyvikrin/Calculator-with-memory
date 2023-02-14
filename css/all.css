@@ -335,7 +335,7 @@ input[type=number]:focus {
 }
 .memory__records {
   height: 309px;
-  margin: 0 0 24px 0;
+  margin: 0 0 26px 0;
 }
 .memory__record {
   margin: 0 0 5px 0;
