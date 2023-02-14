@@ -264,7 +264,19 @@ function showMemory() {
 	memoryClearAllBtn.classList.remove("memory__clear-btn--hiden");
 }
 
+function hideMemory() {
+	memoryHeader.classList.add("memory__offering--hiden");
+	memoryClearAllBtn.classList.add("memory__clear-btn--hiden");
+}
+
+function clearMemory() {
+	memory.splice(0, memory.length);
+	renderMemory();
+	hideMemory();
+}
+
 toCountBtn.addEventListener("click", showResultInOutput);
 clearOutputBtn.addEventListener("click", clearAll);
 outputToInput1.addEventListener("click", moveRelultToFirstValue);
 random2ndNumberBtn.addEventListener("click", initRandom);
+memoryClearAllBtn.addEventListener("click", clearMemory);
