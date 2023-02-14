@@ -8,6 +8,7 @@ const random2ndNumberBtn = document.querySelector(".inputs-block__random-2nd");
 const randomDiv = document.querySelector(".inputs-block__random-active");
 const clearOutputBtn = document.querySelector("#clearButton");
 const outputToInput1 = document.querySelector("#moveValueButton");
+const randomInputs = document.querySelectorAll('[id*="random"]');
 
 let operator;
 
@@ -135,13 +136,29 @@ const transformRandomBtn = () => {
 };
 
 const showRandomNumber = () => {
-	const randomInputs = document.querySelectorAll('[id*="random"]');
+	
 	const moveRandomToInput2Btn = document.querySelector("#random-confirm-btn");
 
 	const getRandomInteger = () => {
 		let min = parseInt(randomInputs[0].value);
 		let max = parseInt(randomInputs[1].value);
-		let rand = min + Math.random() * (max + 1 - min);
+		let rand;
+
+		if (!min && !max) {
+			randomInputs[0].style.border = '1px solid #FF0000';
+			randomInputs[1].style.border = '1px solid #FF0000';
+		} else if (!min) {
+			randomInputs[0].style.border = '1px solid #FF0000';
+			randomInputs[1].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+		} else if (!max) {
+			randomInputs[0].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+			randomInputs[1].style.border = '1px solid #FF0000';
+		} else {
+			randomInputs[0].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+			randomInputs[1].style.border = '1px solid rgba(0, 0, 0, 0.35)';
+			rand = min + Math.random() * (max + 1 - min);
+		}
+
 		return Math.floor(rand);
 	};
 
@@ -158,10 +175,17 @@ function initRandom() {
 const clearAll = () => {
 	output.innerHTML = "";
 	output.style.border  = "1px solid rgba(0, 0, 0, 0.35";
-	inputs[0].value = "";
-	inputs[1].value = "";
-	inputs[0].style.border = "1px solid rgba(0, 0, 0, 0.35)";
-	inputs[1].style.border = "1px solid rgba(0, 0, 0, 0.35)";
+
+	for (let input of inputs) {
+		input.value = '';
+		input.style.border = "1px solid rgba(0, 0, 0, 0.35)";
+	}
+
+	for (let randInput of randomInputs) {
+		randInput.value = '';
+		randInput.style.border = "1px solid rgba(0, 0, 0, 0.35)";
+	}
+
 	randomDiv.classList.add('inputs-block__random-active--hiden');
 	random2ndNumberBtn.classList.remove('inputs-block__random-2nd--hiden');
 };
