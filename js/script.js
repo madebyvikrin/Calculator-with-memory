@@ -245,7 +245,7 @@ function renderMemory() {
 					<p class="memory__index">${memory.indexOf(record) + 1}.</p>
 					<p class="memory__value">${record.result}</p>
 				</div>
-				<button class="memory__delete-btn" id="memoryDeleteBtn">
+				<button class="memory__delete-btn" id="${record.id}">
 					<img
 						src="/Calculator-with-memory/src/img/icons/delete.svg"
 						alt="x"
