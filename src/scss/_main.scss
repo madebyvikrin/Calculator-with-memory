@@ -329,8 +329,25 @@
         font-size: 14px;
         line-height: 17px;
         color: rgba(0, 0, 0, 0.7);
+
         &--hiden {
             display: none;
+        }
+
+        span {
+            font-family: "Roboto", sans-serif;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: 900;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 115px;
+            padding: 0 0 7px 0;
+            border-bottom: 2px solid rgba(219, 27, 27, 0.9);
         }
     }
 }

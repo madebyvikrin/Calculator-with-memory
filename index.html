@@ -7,15 +7,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Калькулятор с памятью</title>
 	<link rel="stylesheet" href="css/all.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
 </head>
-
 <body>
 	<div class="page-wrapper">
 		<header class="header">
-			<h1 class="offering">Калькулятор с памятью</h1>
+			<h1 class="offering">
+				Калькулятор с памятью
+			</h1>
 		</header>
 		<div class="container">
 			<section class="calculator">
@@ -23,12 +24,16 @@
 					<div class="inputs-block">
 						<div class="inputs-block__left">
 							<div class="inputs-block__input-block--first">
-								<p class="inputs-block__offering">Первое число:</p>
+								<p class="inputs-block__offering">
+									Первое число:
+								</p>
 								<input type="number" name="input" id="input1" class="inputs-block__input"
 									placeholder="Введите число" />
 							</div>
 							<div class="inputs-block__input-block">
-								<p class="inputs-block__offering">Второе число:</p>
+								<p class="inputs-block__offering">
+									Второе число:
+								</p>
 								<input type="number" name="input" id="input2" class="inputs-block__input"
 									placeholder="Введите второе число" />
 							</div>
@@ -67,7 +72,9 @@
 						</div>
 					</div>
 					<div class="output-block">
-						<p class="output-block__offering">Результат:</p>
+						<p class="output-block__offering">
+							Результат:
+						</p>
 						<div class="output-block__output" id="output"></div>
 						<div class="output-block__buttons">
 							<input type="button" value="Очистить" id="clearButton" class="output-block__clear-btn" />
@@ -78,7 +85,9 @@
 				</div>
 			</section>
 			<section class="memory">
-				<p class="memory__offering memory__offering--hiden">Память:</p>
+				<p class="memory__offering memory__offering--hiden">
+					Память:
+				</p>
 				<div class="memory__records">
 					<!-- <div class="memory__record">
 							<div class="memory__data">
@@ -95,7 +104,7 @@
 				</div>
 				<input type="button" value="Очистить память" class="memory__clear-btn memory__clear-btn--hiden" />
 				<p class="memory__warning memory__warning--hiden">
-					Достигнут лимит памяти, следующая запись полностью очистит память.
+					Достигнут лимит памяти, следующая запись полностью <span>очистит память</span>.
 				</p>
 			</section>
 		</div>

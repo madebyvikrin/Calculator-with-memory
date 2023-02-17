@@ -258,6 +258,16 @@ function renderMemory() {
 			}
 		});
 	});
+
+	let memoryWarning = document.querySelector(".memory__warning");
+
+	if (memory.length === 13) {
+		memoryWarning.classList.remove("memory__warning--hiden");
+	} else if (memory.length > 13) {
+		clearMemory();
+	} else {
+		memoryWarning.classList.add("memory__warning--hiden");
+	}
 }
 
 function showMemory() {

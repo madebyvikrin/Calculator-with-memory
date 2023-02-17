@@ -390,4 +390,18 @@ input[type=number]:focus {
 }
 .memory__warning--hiden {
   display: none;
+}
+.memory__warning span {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 900;
+}
+.memory__warning::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 115px;
+  padding: 0 0 7px 0;
+  border-bottom: 2px solid rgba(219, 27, 27, 0.9);
 }/*# sourceMappingURL=all.css.map */
