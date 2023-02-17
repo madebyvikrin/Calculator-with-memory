@@ -217,29 +217,17 @@ const clearAll = () => {
 function addMemoryRecord(result) {
 	const record = {
 		result,
-		deleted: false,
 		id: `${Math.random()}`,
 	};
 
 	memory.push(record);
 }
 
-function deleteMemoryRecord(id) {
-	memory.forEach((record) => {
-		if (id === record.id) {
-			record.deleted = true;
-		}
-	});
-}
-
 function renderMemory() {
 	let memoryHtml = "";
 
 	memory.forEach((record) => {
-		if (record.deleted) {
-			return;
-		} else {
-			memoryHtml += `
+		memoryHtml += `
 			<div class="memory__record">
 				<div class="memory__data">
 					<p class="memory__index">${memory.indexOf(record) + 1}.</p>
@@ -253,10 +241,23 @@ function renderMemory() {
 				</button>
 			</div>
 		`;
-		}
 	});
 
 	memoryDiv.innerHTML = memoryHtml;
+
+	let memoryDeleteBtn = document.querySelectorAll(".memory__delete-btn");
+
+	memoryDeleteBtn.forEach((btn) => {
+		btn.addEventListener("click", (event) => {
+			event.preventDefault();
+			let btnID = btn.getAttribute("id");
+			let pos = memory.findIndex((record) => record.id === btnID);
+			if (memory[pos].id === btnID) {
+				memory.splice(pos, 1);
+				renderMemory();
+			}
+		});
+	});
 }
 
 function showMemory() {
