@@ -210,6 +210,11 @@ const clearAll = () => {
 		randInput.style.border = "1px solid rgba(0, 0, 0, 0.35)";
 	}
 
+	for (let btn of operatorsBtns) {
+		btn.style.border = "1px solid rgba(0, 0, 0, 0.5)";
+	}
+
+	operator = null;
 	randomDiv.classList.add("inputs-block__random-active--hiden");
 	random2ndNumberBtn.classList.remove("inputs-block__random-2nd--hiden");
 };
